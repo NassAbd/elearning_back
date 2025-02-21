@@ -1,5 +1,6 @@
 // to handle the requests related to the course
 const Course = require('../models/Course');
+const Quiz = require('../models/Quiz');
 
 // retrieve all courses
 exports.getAllCours = async (req, res) => {
@@ -49,6 +50,8 @@ exports.updateCours = async (req, res) => {
     try {
       const course = await Course.findByIdAndDelete(req.params.id);
       if (!course) return res.status(404).json({ message: 'Course not found.' });
+      // Also delete all quizzes associated with the course
+      await Quiz.deleteMany({ courseId: req.params.id });
       res.json(course);
     } catch (error) {
       res.status(500).json({ message: error.message });
