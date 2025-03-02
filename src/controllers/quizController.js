@@ -37,10 +37,29 @@ exports.getQuizById = async (req, res) => {
 // update a quiz by ID
 exports.updateQuiz = async (req, res) => {
     try {
-        const quiz = await Quiz.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(quiz);
-    }
-    catch (error) {
+        const { question, propositions, answer } = req.body;
+
+        // Retrieve the quiz
+        const quiz = await Quiz.findById(req.params.id);
+
+        // Find the index of the quiz answer in the propositions array
+        const answerIndex = quiz.propositions.indexOf(quiz.answer);
+
+        // Check if the answer has been updated
+        let updatedAnswer = answer;
+        if (answerIndex !== -1 && propositions[answerIndex] !== quiz.answer) {
+            updatedAnswer = propositions[answerIndex];
+        }
+
+        // Update quiz with enventual updated answer
+        const updatedQuiz = await Quiz.findByIdAndUpdate(
+            req.params.id,
+            { question, propositions, answer: updatedAnswer },
+            { new: true }
+        );
+
+        res.json(updatedQuiz);
+    } catch (error) {
         res.status(400).json({ message: error.message });
     }
 };
