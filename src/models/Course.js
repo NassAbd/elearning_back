@@ -1,4 +1,4 @@
-// Course model, with title and content
+// Course model
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

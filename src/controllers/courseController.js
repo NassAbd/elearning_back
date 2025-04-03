@@ -1,4 +1,4 @@
-// to handle the requests related to the course
+// Handle of the requests related to the course
 const Course = require('../models/Course');
 const Quiz = require('../models/Quiz');
 

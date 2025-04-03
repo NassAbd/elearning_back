@@ -1,4 +1,4 @@
-// to handle the requests related to the quiz
+// Handle the requests related to the quiz
 const Quiz = require('../models/Quiz');
 
 // retrieve all quizzes

@@ -1,4 +1,4 @@
-// Quiz model, with question, propositions and answer
+// Quiz model
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

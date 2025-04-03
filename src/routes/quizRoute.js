@@ -1,4 +1,4 @@
-// route for the quizzes, handled by the quizController
+// routes for the quizzes, handled by the quizController
 const express = require('express');
 const router = express.Router();
 

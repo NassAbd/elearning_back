@@ -1,5 +1,4 @@
 // configuration of the mongodb connection
-
 const mongoose = require('mongoose');
 require('dotenv').config();
 

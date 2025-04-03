@@ -1,5 +1,4 @@
 // server's main configuration
-
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
@@ -14,7 +13,7 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 
-// Define routes
+// routes
 app.use('/api/courses', courseRoute);
 app.use('/api/quizzes', quizRoute);
 

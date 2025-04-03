@@ -1,4 +1,4 @@
-// route for the course, handled by the courseController
+// routes for the course, handled by the courseController
 const express = require('express');
 const router = express.Router();
 
